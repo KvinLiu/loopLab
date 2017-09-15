@@ -1,6 +1,16 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
+const notify = require('gulp-notify');
+
+let handleError = (task) => {
+	return function(err) {
+		notify.onError({
+			message: task + ' failed, check the logs..',
+			sound: false
+		})(err);
+	};
+};
 
 // Compile Sass & Inject Into Browser
 gulp.task('sass', () => {
@@ -8,6 +18,7 @@ gulp.task('sass', () => {
 		'node_modules/bootstrap/scss/bootstrap.scss',
 		'src/sass/*.sass'
 	]).pipe(sass())
+		.on('error', handleError('sass'))
 		.pipe(gulp.dest("src/css"))
 		.pipe(browserSync.stream());
 });
