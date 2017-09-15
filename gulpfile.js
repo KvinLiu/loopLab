@@ -24,7 +24,8 @@ gulp.task('js', () => {
 // Watch Sass & Server
 gulp.task('server', ['sass'], () => {
 	browserSync.init({
-		server: "./src"
+		server: "./src",
+		notify: false
 	});
 
 	gulp.watch([
