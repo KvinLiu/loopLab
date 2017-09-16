@@ -27,3 +27,10 @@ body {
     padding: 4px;
     border-radius: 5px;
     font-size: 30px; }
+
+#explore-section .fa {
+  color: #ffffff;
+  background: #333333;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 30px; }
